@@ -1,0 +1,206 @@
+\begin{dftn}
+    Une \emph{assertion} ou \emph{proposition} est une phrase logique syntaxiquement correcte, ayant un sens, et dont on peut dire sans ambiguïté si elle est vrai ou fausse. On appelle la vérité ou fausseté d'une assertion sa \emph{valeur de vérité}. 
+\end{dftn}
+
+\begin{lined}
+    Par exemple, "$x = 2$ et $x > 5$" est une assertion, qui est fausse.
+\end{lined}
+
+Le travail du mathématicien consiste à décider, étant donné une assertion, sa valeur de vérité.\footnote{Ce travail est en fait sans espoir. \textit{Cf.} Gödel, Turing, etc.}
+
+\begin{dftn}
+    Un \emph{prédicat d'arité $n$}, où $n$ est un entier naturel, est une phrase logique syntaxiquement correcte, qui prend un sens lorsque l'on précise ou quantifie $n$ variables, et dont on peut déterminer la valeur de vérité une fois ces variables préciser.
+\end{dftn}
+
+En général, un prédicat porte implicitement sur des variables "d'un certain type", ou vivant dans un certain ensemble. D'une certaine façon, on peut voir un prédicat comme une fonction de cette ensemble vers les assertions.
+
+\begin{lined}
+    Par exemple, "avoir un carré supérieur à 5" est un prédicat. Si on le note $P$, on peut, pour tout $x$ réel, considérer l'assertion $P(x)$ : "ce $x$ spécifique a un carré supérieur à 5". Dans ce cas, le prédicat est implicitement défini sur les objets 1)~dont on peut prendre le carré 2)~dont le carré peut être comparé à 5. Autre exemple, les symboles $=, \leq, >$... dénotent des prédicats d'arité 2.
+\end{lined}
+
+Étant donné un prédicat défini sur un ensemble, on peut se demander pour quels éléments de cet ensemble le prédicat est vrai.
+
+\begin{dftn}
+    Soit $P$ un prédicat défini sur un ensemble $E$. 
+    
+    On note $\forall x \in E, P(x)$ l'assertion "l'assertion $P(x)$ est vraie quel que soit l'élément $x \in E$". On dit que $\forall$ est le \emph{quantificateur universel} et on le lit "pour tout" où "quel que soit".
+
+    On note $\exists x \in E, P(x)$ l'assertion "l'assertion $P(x)$ est vraie pour au moins un élément $x \in E$". On dit que $\exists$ est le \emph{quantificateur existentiel} et on le lit "il existe".
+\end{dftn}
+
+Attention, étant donné un prédicat $P$ définit sur $E$, les assertions $P(x)$ pour $x \in E$ donné, $\forall x \in E, P(x)$ et $\exists x \in E, P(x)$ n'ont aucune raison d'être vraies ou fausses simultanément.
+
+\subsection{Fonctions booléennes}
+
+\begin{dftn}
+    On appelle \emph{booléen} les éléments de $\{\mathtt{Vrai}, \mathtt{Faux}\}$. Étant donné un entier naturel $n$, on appelle \emph{fonction booléenne} d'arité $n$, ou à $n$ arguments, une fonction de $\{\mathtt{Vrai}, \mathtt{Faux}\}^n$ à valeur dans $\{\mathtt{Vrai}, \mathtt{Faux}\}$.
+\end{dftn}
+
+\begin{lined}
+    Pour tout $n \in \NN$, on peut voir $\mathtt{Vrai}$ (respectivement $\mathtt{Faux}$), comme la fonction constante renvoyant toujours $\mathtt{Vrai}$ (resp. $\mathtt{Faux}$).
+\end{lined}
+
+\begin{prop}
+    Il existe exactement 2 fonctions booléennes à 0 arguments, 4 fonctions booléennes à 1 argument et 16 fonctions booléennes à 2 arguments, et plus généralement $2^{2^n}$ fonctions booléennes à $n$ arguments.
+\end{prop}
+
+\begin{proof}
+    Pour entièrement déterminer une fonction booléenne d'arité $n$, il faut et il suffit d'associer chaque $\mathtt{Vrai}$ ou $\mathtt{Faux}$ à chaque élément de $\{\mathtt{Vrai}, \mathtt{Faux}\}^n$. Cet ensemble contient $2^n$ éléments, pour chacun desquels deux choix sont possibles. Il y a donc $2^{2^n}$ telles fonctions booléennes.
+\end{proof}
+
+Connaissant leur nombre, on peut en lister quelques-unes.
+
+-- \textbf{Arité 0.} $\mathtt{Vrai}, \mathtt{Faux}$
+
+-- \textbf{Arité 1.} $\mathtt{Vrai}, \mathtt{Faux}$ et également :
+$$\left\{\begin{aligned}
+    \mathtt{Vrai} & \mapsto \mathtt{Vrai}\\
+    \mathtt{Faux} & \mapsto \mathtt{Faux}
+\end{aligned}\right.,
+\qquad\qquad
+\left\{\begin{aligned}
+    \mathtt{Vrai} & \mapsto \mathtt{Faux}\\
+    \mathtt{Faux} & \mapsto \mathtt{Vrai}
+\end{aligned}\right..$$
+On nomme cette dernière fonction "NON". On la note souvent, étant donné un booléen $A$, par $\overline{A}$ ou encore $\neg A$. On observe facilement que NON est involutif, c'est-à-dire que pour tout booléen $A$, on a $\neg(\neg(A)) = A$.
+
+-- \textbf{Arité 2.} Elles sont trop nombreuses pour que nous les notions toutes ici. Cependant, voyons-en quelques-unes important. On les donne par leur \emph{table de vérité} : ici un tableau à double entrée donnant en colonne la valeur d'un premier booléen $A$ et en colonne celle d'un second booléen $B$. On abrège $\mathtt{Vrai}$ par $\vrai$ et $\mathtt{Faux}$ par $\faux$.
+\begin{center}
+    \begin{tblr}{X[c]X[c]X[c]|X[c]X[c]X[c]}
+        \textsc{Nom} & \textsc{Table} & \textsc{Notation} & \textsc{Nom} & \textsc{Table} & \textsc{Notation}\\
+        \hline\hline
+        ET & \SetTblrInner{rowsep=0pt}
+        \begin{tblr}{c|c|c}
+            \diagbox[innerwidth=.5cm]{$B$}{$A$}&$\vrai$&$\faux$\\
+            \hline
+            $\vrai$&$\vrai$&$\faux$\\
+            \hline
+            $\faux$&$\faux$&$\faux$
+        \end{tblr} & $A$ et $B$, $A \wedge B$
+        & OU & \SetTblrInner{rowsep=0pt}
+        \begin{tblr}{c|c|c}
+            \diagbox[innerwidth=.5cm]{$B$}{$A$}&$\vrai$&$\faux$\\
+            \hline
+            $\vrai$&$\vrai$&$\vrai$\\
+            \hline
+            $\faux$&$\vrai$&$\faux$
+        \end{tblr} & $A$ ou $B$, $A \vee B$\\
+        \hline
+        Implication & \SetTblrInner{rowsep=0pt}
+        \begin{tblr}{c|c|c}
+            \diagbox[innerwidth=.5cm]{$B$}{$A$}&$\vrai$&$\faux$\\
+            \hline
+            $\vrai$&$\vrai$&$\vrai$\\
+            \hline
+            $\faux$&$\faux$&$\vrai$
+        \end{tblr} & $A \Rightarrow B$
+        & Implication réciproque & \SetTblrInner{rowsep=0pt}
+        \begin{tblr}{c|c|c}
+            \diagbox[innerwidth=.5cm]{$B$}{$A$}&$\vrai$&$\faux$\\
+            \hline
+            $\vrai$&$\vrai$&$\faux$\\
+            \hline
+            $\faux$&$\vrai$&$\vrai$
+        \end{tblr} & $A \Leftarrow B$\\
+        \hline
+        Equivalence & \SetTblrInner{rowsep=0pt}
+        \begin{tblr}{c|c|c}
+            \diagbox[innerwidth=.5cm]{$B$}{$A$}&$\vrai$&$\faux$\\
+            \hline
+            $\vrai$&$\vrai$&$\faux$\\
+            \hline
+            $\faux$&$\faux$&$\vrai$
+        \end{tblr} & $A \Leftrightarrow B$
+        & OU Exclusif & \SetTblrInner{rowsep=0pt}
+        \begin{tblr}{c|c|c}
+            \diagbox[innerwidth=.5cm]{$B$}{$A$}&$\vrai$&$\faux$\\
+            \hline
+            $\vrai$&$\faux$&$\vrai$\\
+            \hline
+            $\faux$&$\vrai$&$\faux$
+        \end{tblr} & $A \oplus B$ (rare)
+    \end{tblr}
+\end{center}
+
+Bien entendu, on peut combiner ces fonctions booléennes, par exemple en $$(A \vee \neg B) \wedge \neg ((A \vee B) \wedge C)$$ où $A, B, C$ sont des variables booléennes. Notez que les parenthèses sont importantes : il existe des conventions sur la priorité d'application des fonctions booléennes, mais elles ne sont pas universelles. Il vaut donc mieux être explicite et parenthéser l'expression aussi clairement que possible. L'exception à ce conseil concerne la fonction NON : on considère qu'elle est la plus prioritaire de toutes. Ainsi, $\neg A \vee B = (\neg A) \vee B$, par exemple.
+
+\begin{lined}
+    On remarquera que la même fonction booléenne peut avoir plusieurs \emph{expressions} comme composition d'autres fonctions. Par exemple $A \vee \neg A$ et $\vrai$ sont deux expressions différentes, mais sont égales en tant que fonctions.
+\end{lined}
+
+\begin{rlined}
+    \begin{exo}[\textsc{Important}]
+        À quelle fonction présentée dans le tableau ci-dessus correspond l'expression $\neg A \vee B$ ? Et $\neg B \Rightarrow A$ ?
+    \end{exo}
+\end{rlined}
+
+\begin{prop}
+    Pour tout $n \in \NN$, on peut écrire toute fonction booléenne d'arité $n$ en utilisant uniquement $\vrai, \faux, \wedge, \vee, \neg$.
+\end{prop}
+
+\begin{proof}
+    On raisonne par récurrence pour prouver que la propriété $P(n)$ : "on peut écrire toute fonction booléenne d'arité $n$ en utilisant uniquement $\vrai, \faux, \wedge, \vee, \neg$" est vraie pour tout $n$. 
+    Il est évident que $P(0)$ est vraie. Supposons $P(n)$ et soit $f$ une fonction booléenne d'arité $n+1$. La fonction qui à tout $(b_i)_{1 \leq i \leq n} \in \{\vrai, \faux\}^n$ associe $f(b_1, \dots, b_n, \vrai)$ est une fonction d'arité $n$. Notons là $f_{\vrai}$. De la même façon, on définit une fonction $f_{\faux} = f(\cdot, \dots, \cdot, \faux)$. D'après $P(n)$, il existe deux expressions $E_{\vrai}, E_{\faux}$ en $n$ variables utilisant uniquement $\vrai, \faux, \wedge, \vee, \neg$, telles que $E_{\vrai} = f_{\vrai}$ et $E_{\faux} = f_{\faux}$ en tant que fonction. Alors :
+    $$f(b_1, \dots, b_{n+1}) = (E_{\vrai}(b_1, \dots, b_n) \wedge b_{n+1}) \vee (E_{\faux}(b_1, \dots, b_n) \wedge \neg b_{n+1}).$$
+    On conclut par le principe de récurrence.
+\end{proof}
+
+\subsection{Composition des opérateurs booléens}
+
+À un haut niveau, on peut voir le travail du mathématicien comme la manipulation d'expressions booléennes : partant de résultats connus ou de vérités évidentes, il s'agit de le combiner dans des fonctions booléennes, appelées dans ce contexte \emph{opérateurs logiques}, pour en obtenir de nouveau. Pour raisonner correctement, il est donc nécessaire d'être à l'aise avec ces opérateurs logiques et la façon dont ils se composent les uns avec les autres.
+
+On a déjà vu comment NON se compose avec elle-même : elle est involutive.
+
+\begin{prop}[Lois de De Morgan]
+    Pour tous booléens $A, B$, on a $\neg (A \wedge B) = \neg A \vee \neg B$ et $\neg(A \vee B) = \neg A \wedge \neg B$.
+\end{prop}
+
+\begin{proof}
+    Il est facile de se convaincre que c'est le cas en traduisant les formules logiques en français "si on n'a pas les deux, c'est qu'il manque un des deux" (et réciproquement) et "si on n'a aucun des deux, c'est qu'on a ni l'un ni l'autre". Cependant, on peut avoir une preuve simplement en considérant les tables de vérité.
+
+    \begin{center}
+        \begin{tblr}{c|cccc}
+            $A$ & $\vrai$ & $\vrai$ & $\faux$ & $\faux$\\
+            $B$ & $\vrai$ & $\faux$ & $\vrai$ & $\faux$\\
+            $A \wedge B$ & $\vrai$ & $\faux$ & $\faux$ & $\faux$\\
+            $\neg(A \wedge B)$ & $\faux$ & $\vrai$ & $\vrai$ & $\vrai$\\
+            $\neg A \vee \neg B$ & $\faux$ & $\vrai$ & $\vrai$ & $\vrai$
+        \end{tblr}
+        \qquad\qquad
+        \begin{tblr}{c|cccc}
+            $A$ & $\vrai$ & $\vrai$ & $\faux$ & $\faux$\\
+            $B$ & $\vrai$ & $\faux$ & $\vrai$ & $\faux$\\
+            $A \vee B$ & $\vrai$ & $\vrai$ & $\vrai$ & $\faux$\\
+            $\neg(A \vee B)$ & $\faux$ & $\faux$ & $\faux$ & $\vrai$\\
+            $\neg A \wedge \neg B$ & $\faux$ & $\faux$ & $\faux$ & $\vrai$
+        \end{tblr}
+    \end{center}
+\end{proof}
+
+Cette manière de présenter les tables de vérité devient plus pratique que la précédente dès que l'on a plus d'une fonction, ou plus de deux variables.
+
+\begin{rlined}
+    \begin{exo}(\textsc{Important})\label{exo:bool}
+        Montrer à l'aide de tables de vérité les propriétés (à connaitre !) suivantes.
+        Pour tous $A, B, C$ booléens :
+        \begin{itemize}
+            \item $A \wedge B = B \wedge A$ et $A \vee B = B \vee A$ (on dit que ET et OU sont commutatives).
+            \item $A\wedge(B\wedge C) = (A\wedge B)\wedge C$ (on dit que ET est associative).
+            \item $A\vee(B\vee C) = (A\vee B)\vee C$ (on dit que OU est associative).
+            \item $A \wedge (B \vee C) = A \wedge B \vee A \wedge C$ (on dit que ET est distributive sur OU)
+            \item $A \wedge (B \vee C) = A \wedge B \vee A \wedge C$ (on dit que ET est distributive sur OU).
+            \item $A \vee \neg A = \vrai, A \wedge \neg A = \faux$.
+            \item $(A \Rightarrow B) \wedge (B \Rightarrow A) = A \Leftrightarrow B$
+        \end{itemize}
+    \end{exo}
+    \begin{exo}(\textsc{Important})
+        Montrer à l'aide de contre-exemples les propriétés suivantes.
+        Il existe des $A, B, C$ booléens :
+        \begin{itemize}
+            \item $A \vee (B \wedge C) \neq (A \vee B) \wedge C$.
+            \item $A \Rightarrow (B \Rightarrow C) \neq (A \Rightarrow B) \Rightarrow C$.
+        \end{itemize}
+    \end{exo}
+\end{rlined}
+
+\newpage

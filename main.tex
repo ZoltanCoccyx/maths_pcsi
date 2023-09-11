@@ -1,0 +1,108 @@
+\documentclass[a4paper, 9pt]{report}
+\usepackage{pack}
+
+\title{Mathématiques Supérieures\\ Classe de PCSI}
+
+\author{Balthazar Charles}
+
+\pagestyle{empty}
+
+\makeatletter
+\def\@makechapterhead#1{%
+  %%%%\vspace*{50\p@}% %%% removed!
+  {\parindent \z@ \raggedright \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+        \huge\bfseries \@chapapp\space \thechapter
+        \par\nobreak
+        \vskip 20\p@
+    \fi
+    \interlinepenalty\@M
+    \Huge \bfseries #1\par\nobreak
+    \vskip 40\p@
+  }}
+\def\@makeschapterhead#1{%
+  %%%%%\vspace*{50\p@}% %%% removed!
+  {\parindent \z@ \raggedright
+    \normalfont
+    \interlinepenalty\@M
+    \Huge \bfseries  #1\par\nobreak
+    \vskip 40\p@
+  }}
+\makeatother
+
+\begin{document}
+
+%\maketitle
+
+\vspace*{-20em}
+
+\chapter{Logique et vocabulaire ensembliste}
+
+\section*{Ce que dit le programme}
+
+\textit{Ce chapitre regroupe le vocabulaire, les notations et les modes de raisonnement nécessaires aux étudiants pour la conception et la rédaction efficace d’un texte mathématique. Ils doivent être introduits de manière progressive et être acquis en fin de premier semestre. Le programme se limite à une approche naïve des notions d’ensemble et d’application. En particulier, toute étude systématique de la logique ou de la théorie des ensembles est exclue. L’algèbre générale ne figure pas au programme. Plusieurs groupes classiques étant rencontrés en algèbre linéaire, la terminologie associée peut être utilisée mais aucune connaissance théorique sur cette structure n’est exigible.}
+
+\begin{table}[h!]
+    \begin{center}
+        \begin{tblr}{colspec = {XX}}
+            \SetCell{c} \textsc{Contenus} & \SetCell{c} \textsc{Capacités \& commentaires} \\
+            \hline
+            \SetCell[r=1, c=2]{l} {\color{red} a) Rudiments de logique} & \\
+            \hline[.1pt, gray]
+            Quantificateurs. & Les étudiants doivent savoir employer les quantificateurs pour formuler de façon précise certains énoncés et leur négation. En revanche, l’emploi des quantificateurs en guise d’abréviations est exclu.\\
+            Implication, contraposition, équivalence. &\\
+            Modes de raisonnement : raisonnement par récurrence,
+            par contraposition, par l’absurde, par analyse-synthèse.&
+            Toute construction et toute axiomatique de $\NN$ sont hors
+            programme. Le raisonnement par analyse-synthèse est
+            l’occasion de préciser les notions de condition nécessaire
+            et de condition sufﬁsante\\
+            \hline
+            \SetCell[r=1, c=2]{l} {\color{red} b) Ensembles} & \\
+            \hline[.1pt, gray]
+            Appartenance, inclusion. &\\
+            Sous-ensembles (ou parties) d’un ensemble, ensemble vide.&\\
+            Opérations sur les parties d’un ensemble : réunion, intersection, complémentaire.&
+            Notations $\complement_E^A, \overline{A}, E \setminus A$.
+            Les étudiants doivent maîtriser le lien entre connecteurs logiques et opérations ensemblistes.\\
+            Produit cartésien de deux ensembles, d’un nombre fini d’ensembles.&\\
+            Ensemble des parties d’un ensemble.\\
+        \end{tblr}
+    \end{center}
+\end{table}
+
+\begin{table}[h!]   
+    \begin{center}
+        \begin{tblr}{colspec = {XX}}
+            \SetCell{c} \textsc{Contenus} & \SetCell{c} \textsc{Capacités \& commentaires} \\
+            \hline
+            \SetCell[r=1, c=2]{l} {\color{red} b) Applications et relations d'équivalence} & \\
+            \hline[.1pt, gray]
+            Application d’un ensemble non vide $E$ dans un ensemble non vide $F$ ; graphe d’une application. 
+            & Le point de vue est intuitif : une application de $E$ dans $F$ associe à tout élément de $E$ un unique élément de $F$ . Notations $\mathcal{F}(E,F)$ et $F^E$ pour l’ensemble des applications de $E$ dans $F$.\\
+            Famille d’éléments d’un ensemble $E$ indexée par un ensemble fini.\\ Fonction indicatrice d’une partie $A$ d’un ensemble $E$. & Notation $\ind_A$.\\
+            Restriction. & Notation $f_{|A}$.\\
+            Image directe. & Notation $f(A)$.\\
+            Image réciproque. & Notation $f\inv(B)$.\\
+            Composition.\\
+            Injection, surjection. Composée de deux injections, de deux surjections.\\
+            Bijection, réciproque. Composée de deux bijections, réciproque de la composée. \\
+            Relation d’équivalence, classes d’équivalence. &La notion d’ensemble quotient est hors programme.\\
+            \hline
+        \end{tblr}
+    \end{center}
+\end{table}
+
+\newpage
+
+\section{Rudiments de logique}
+
+%\input{01-logique.tex}
+
+\newpage
+
+\section{Ensembles}
+
+\input{02-ensembles.tex}
+
+\end{document}

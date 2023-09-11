@@ -1,0 +1,252 @@
+\usepackage[english, french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+\usepackage[T1]{fontenc}
+\usepackage[includeheadfoot, margin=3cm]{geometry}
+\usepackage{afterpage}
+
+\usepackage{fancyhdr}
+
+%%%%%% Stupide thèse Paris-Saclay
+\usepackage{gensymb} 
+\usepackage[scale=.95]{opensans} % police Open Sans
+\usepackage{xcolor} % où color selon l'installation
+\definecolor{Prune}{RGB}{99,0,60} 
+\usepackage[absolute]{textpos} 
+\usepackage{colortbl}
+\usepackage{array}
+\usepackage{tabularray}
+\usepackage{titlesec}
+\usepackage{lmodern}
+
+%%%%%% FIGURES ET DESSINS
+\usepackage{graphicx}
+\usepackage{graphbox}
+\usepackage{tikz}
+\usetikzlibrary{cd}
+\usetikzlibrary{arrows}
+\usetikzlibrary{positioning}
+\usepackage{subcaption}
+\usepackage[justification=centering]{caption}
+\captionsetup[figure]{font=small}
+\usetikzlibrary{decorations.pathmorphing}
+\usepackage{diagbox}
+
+%%%%%% ECRIRE DES MATHS
+\usepackage{amsmath, amsthm, amssymb, bm}
+\usepackage{amsfonts, dsfont}
+\usepackage{stmaryrd}
+\usepackage{centernot}
+\usepackage{mathtools}
+\usepackage{faktor}
+\usepackage{dynkin-diagrams}
+%\usepackage{calrsfs}
+
+%%%%%% MISE EN PAGE
+\usepackage[shortlabels]{enumitem} % ne pas utiliser dans un beamer
+\usepackage{multicol}
+\setlength{\columnseprule}{0.02cm}
+\setlength{\columnsep}{16pt}
+\usepackage{multirow} %% Pour mettre un texte sur plusieurs rangées
+\usepackage{scrextend} %Forcer la 4ème  de couverture en page pair
+\usepackage[hidelinks]{hyperref}
+\hypersetup{colorlinks=false}
+\usepackage{xspace}
+\usepackage[normalem]{ulem}
+\usepackage{adjustbox}
+
+%%%%%% NOTES ET LEGENDES%\usepackage{libertine}
+\usepackage{marginnote}
+\usepackage{todonotes}
+
+%%%%%% CODE ET ALGORITHMES
+%\usepackage{minted}
+\usepackage[vlined,ruled,linesnumbered]{algorithm2e}
+\newcommand\mycommfont[1]{\ttfamily\textcolor{blue}{#1}}
+\SetCommentSty{mycommfont}
+% define input and output keywords
+\SetKwInOut{Input}{input}
+\SetKwInOut{Output}{output}
+
+%%%%%% Math Operator
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\cone}{cone}
+\DeclareMathOperator{\conj}{Conj}
+\DeclareMathOperator{\apex}{apex}
+\DeclareMathOperator{\tr}{Tr}
+\DeclareMathOperator{\vol}{Vol}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\car}{char}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\ann}{Ann}
+\DeclareMathOperator{\indu}{Ind}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\irr}{Irr}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\soc}{soc}
+\DeclareMathOperator{\stab}{Stab}
+\DeclareMathOperator{\sat}{Sat}
+\DeclareMathOperator{\N}{N}
+\DeclareMathOperator{\proj}{Proj}
+\DeclareMathOperator{\module}{mod}
+\DeclareMathOperator{\fix}{Fix}
+\DeclareMathOperator{\bij}{Bij}
+\DeclareMathOperator{\res}{res}
+\DeclareMathOperator{\sk}{Sk}
+\DeclareMathOperator{\Sp}{Span}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\dpi}{dp_{\infty}}
+
+
+\newcommand{\km}{\kbf M}
+\newcommand{\kg}{\kbf G_e}
+\newcommand{\kgop}{\kg^{op}}
+\newcommand{\kmg}{\km \otimes \kgop}
+\newcommand{\kle}{\kbf \lc(e)}
+
+%%%%% Abréviations
+%\newcommand{\nota}[1]{{\bf \color{red} [#1]}}
+\newcommand{\cad}{c'est-à-dire\ }
+\newcommand{\ssi}{si et seulement si }
+\newcommand{\tq}{\text{ tel que }}
+\newcommand{\tsq}{\text{ tels que }}
+\newcommand{\teq}{\text{ telle que }}
+\newcommand{\tesq}{\text{ telles que }}
+\newcommand{\schu}{Schützenberger\xspace}
+
+
+\newcommand{\esp}[1]{\mathbb{E}\left[#1\right]}
+\newcommand{\inv}{^{-1}}
+\newcommand{\sepp}{\,\vert\,}
+
+% Green relations
+\newcommand{\leql}{\leq_{\mathcal{L}}}
+\newcommand{\leqr}{\leq_{\mathcal{R}}}
+\newcommand{\leqj}{\leq_{\mathcal{J}}}
+\newcommand{\leqh}{\leq_{\mathcal{H}}}
+\newcommand{\leqk}{\leq_{\mathcal{K}}}
+\newcommand{\leqd}{\leq_{\mathcal{D}}}
+
+%%%%%% DIFFERENTIELLES
+\newcommand{\intint}[1]{\llbracket {#1} \rrbracket}
+\newcommand{\diff}[2]{\mathrm{d}{#1}_{#2}}
+\newcommand{\ndiff}[3]{\mathrm{d}^{#3}{#1}_{#2}}
+\newcommand{\scal}[1]{\langle #1 \rangle}
+\newcommand{\Zn}[1]{\mathbb{Z}/#1\mathbb{Z}}
+
+%%%%%% LETTRES
+\newcommand{\symm}{\mathfrak{S}}
+\newcommand{\parties}{\mathfrak{P}}
+\newcommand{\alter}{\mathfrak{A}}
+
+\newcommand{\tore}{\mathbb{T}}
+\newcommand{\DD}{\mathbb{D}}
+\renewcommand{\SS}{\mathbb{S}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\UU}{\mathbb{U}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\KK}{\mathbb{K}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\VV}{\mathbb{V}}
+
+\newcommand{\ind}{\mathds{1}}
+
+
+\usepackage[mathscr]{eucal}
+
+\newcommand{\four}{\mathcal{F}}
+\newcommand{\lin}{\mathscr{L}}
+\newcommand{\orth}{\mathcal{O}}
+\newcommand{\jc}{\mathcal{\;\!J\;\!}}
+\newcommand{\dc}{\mathcal{\;\!D\;\!}}
+\newcommand{\lc}{\mathcal{\;\!L\;\!}}
+\newcommand{\rc}{\mathcal{\;\!R\;\!}}
+\newcommand{\hc}{\mathcal{\;\!H\;\!}}
+\newcommand{\kc}{\mathcal{\;\!K\;\!}}
+
+\newcommand{\kbf}{\mathbf{k}}
+\newcommand{\kbS}{\mathbf{S}}
+
+\newcommand{\mul}[1]{\times_{#1}}
+
+%%%%%% ENSEMBLES COURANTS
+\newcommand{\Sn}{\mathcal{S}_n}
+\newcommand{\Snp}{\mathcal{S}_n^+}
+\newcommand{\Snpp}{\mathcal{S}_n^{++}}
+
+%%%%%% MATHRM COURANTES
+\newcommand{\aut}{\mathrm{Aut}}
+\newcommand{\pgcd}{\mathrm{PGCD}}
+\newcommand{\ppcm}{\mathrm{PPCM}}
+\newcommand{\supp}{\mathrm{supp}}
+\newcommand{\Id}{\mathrm{Id}}
+\newcommand{\vect}{\mathrm{Vect}}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\ev}{\mathrm{ev}}
+\newcommand{\im}{\mathrm{Im}\,}
+
+\newcommand{\vrai}{\mathtt{V}}
+\newcommand{\faux}{\mathtt{F}}
+
+%%%%%% SYMBOLES
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
+
+%%%%%% CODE
+%\newcommand{\mc}{\mintinline{c}}
+%\newcommand{\ms}{\mintinline{shell}}
+
+%\setlength{\parindent}{0cm}
+%\renewcommand\thesection{\Roman{section}}
+%\renewcommand{\thesubsection}{\arabic{subsection}}
+%\renewcommand*{\marginfont}{\it \scriptsize}
+
+{\theoremstyle{plain}
+	\newtheorem{thm}{Theorem}
+	\newtheorem{prop}[thm]{Proposition}
+	\newtheorem{cor}[thm]{Corollary}
+	\newtheorem{conjecture}[thm]{Conjecture}
+	\newtheorem{lemme}[thm]{Lemma}
+	\newtheorem*{ax}{Axiome}
+}
+
+{\theoremstyle{definition}
+	\newtheorem{dftn}[thm]{Définition}
+	\newtheorem{exo}[thm]{Exercice}
+	\newtheorem{algo}[thm]{Algorithm}
+	\newtheorem{question}[thm]{Question}
+	\newtheorem{notation}[thm]{Notation}
+	\newtheorem{ex}[thm]{Example}
+	\newtheorem{obs}[thm]{Observation}
+	\newtheorem*{rmk}{Remark}
+}
+\numberwithin{thm}{section}
+
+% LINE ON THE SIDE
+\usepackage{tcolorbox}
+\tcbuselibrary{listings, skins, breakable}
+
+\newenvironment{lined}[1][red]
+	{\begin{tcolorbox}[enhanced, breakable, frame hidden, borderline west = {0.5pt}{0pt}{black}, colframe=#1]}
+	{\end{tcolorbox}
+}
+
+\newenvironment{rlined}[1][red]
+	{\begin{tcolorbox}[enhanced, breakable, frame hidden, borderline west = {1pt}{0pt}{red}, colframe=#1, colback = red!7]}
+	{\end{tcolorbox}
+}
+
+\newenvironment{EDbox}[1][Prune]
+	{\begin{tcolorbox}[enhanced, breakable, colback=white, colframe=Prune, sharp corners, before upper={\parindent18pt\noindent}, boxrule=0.5pt]}
+	{\end{tcolorbox}
+}
+
+\newenvironment{cframed}[1][red]
+	{\begin{tcolorbox}[enhanced, breakable, colback=red!7, colframe=#1]}
+	{\end{tcolorbox}
+}
